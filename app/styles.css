@@ -113,3 +113,36 @@
 [data-testid="stElementToolbar"] button:hover {
     background: rgba(255,255,255,0.20) !important;
 }
+
+/* View SQL expander */
+div[data-testid="stExpander"] details {
+    background-color: rgba(11, 30, 45, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 8px !important;
+}
+div[data-testid="stExpander"] summary,
+div[data-testid="stExpander"] summary p,
+div[data-testid="stExpander"] summary span {
+    background-color: transparent !important;
+    color: #ffffff !important;
+}
+
+/* SQL code box */
+div[data-testid="stCode"],
+div[data-testid="stCode"] pre,
+div[data-testid="stCodeBlock"],
+div[data-testid="stCodeBlock"] pre {
+    background-color: #0b1e2d !important;
+}
+div[data-testid="stCode"] code,
+div[data-testid="stCode"] code span,
+div[data-testid="stCodeBlock"] code,
+div[data-testid="stCodeBlock"] code span {
+    color: #e8f1f8 !important;
+}
+
+/* Copy button on the code box */
+div[data-testid="stCode"] button,
+div[data-testid="stCodeBlock"] button {
+    color: #ffffff !important;
+}

@@ -8,17 +8,25 @@ import base64
 from pathlib import Path
 
 load_dotenv()
+CA_PATH = Path(__file__).resolve().parent.parent / "ca.pem"
 
-
+# @st.cache_resource
+# def get_engine():
+#     """Create the database connection once and reuse it."""
+#     pw = quote_plus(os.getenv("DB_PASSWORD"))
+#     return create_engine(
+#         f"mysql+pymysql://{os.getenv('DB_USER')}:{pw}"
+#         f"@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}"
+#     )
 @st.cache_resource
 def get_engine():
     """Create the database connection once and reuse it."""
     pw = quote_plus(os.getenv("DB_PASSWORD"))
     return create_engine(
         f"mysql+pymysql://{os.getenv('DB_USER')}:{pw}"
-        f"@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}"
+        f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}",
+        connect_args={"ssl": {"ca": str(CA_PATH)}},
     )
-
 
 @st.cache_data(ttl=600)
 def run_query(sql,params=None):
@@ -91,7 +99,7 @@ def show_top_countries_chart():
 
     query = """
         SELECT country, COUNT(*) AS competitors
-        FROM Competitors
+        FROM competitors
         WHERE country IS NOT NULL
         GROUP BY country
         ORDER BY competitors DESC
