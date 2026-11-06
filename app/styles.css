@@ -1,0 +1,115 @@
+/* Background image */
+.stApp {
+    background-color: #0e1a1a;
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                      url("data:image/jpeg;base64,__BG_IMAGE__");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+[data-testid="stHeader"],
+[data-testid="stMain"] .block-container { background: transparent; }
+
+/* Dark sidebar */
+[data-testid="stSidebar"] {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+}
+
+/* White text */
+.stApp, .stApp h1, .stApp h2, .stApp h3, .stApp h4,
+.stApp p, .stApp label, .stApp span, .stApp li,
+[data-testid="stMetricValue"], [data-testid="stMetricLabel"],
+[data-testid="stMarkdownContainer"] { color: #ffffff !important; }
+
+/* Transparent chart + white chart text */
+[data-testid="stVegaLiteChart"], [data-testid="stArrowVegaLiteChart"],
+.vega-embed, .vega-embed canvas, .vega-embed svg { background: transparent !important; }
+.vega-embed svg text { fill: #ffffff !important; }
+
+/* Transparent table */
+[data-testid="stTable"] th, [data-testid="stTable"] td {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.25) !important;
+    text-align: left !important;
+}
+
+/* Border on charts and tables */
+[data-testid="stVegaLiteChart"], [data-testid="stArrowVegaLiteChart"], [data-testid="stTable"] {
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Chart: more room on the right so the last bar doesn't touch the border */
+[data-testid="stVegaLiteChart"], [data-testid="stArrowVegaLiteChart"] {
+    padding: 12px 24px 12px 12px !important;
+}
+
+/* Chart: softer gridlines */
+.vega-embed .role-axis-grid line { stroke: rgba(255,255,255,0.15) !important; }
+
+/* Inputs: transparent inside, white text */
+[data-testid="stTextInput"] *,
+[data-testid="stSelectbox"] *,
+[data-testid="stMultiSelect"] * {
+    background: transparent !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Inputs: tint + border on the outer box only */
+[data-testid="stTextInput"] div:has(> input),
+[data-testid="stSelectbox"] [data-baseweb="select"] > div,
+[data-testid="stMultiSelect"] [data-baseweb="select"] > div {
+    background: rgba(255,255,255,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.45) !important;
+    border-radius: 10px !important;
+}
+
+/* Dropdown arrow icon */
+[data-testid="stSelectbox"] svg, [data-testid="stMultiSelect"] svg { fill: #ffffff !important; }
+
+/* Transparent buttons */
+[data-testid="stDownloadButton"] button,
+[data-testid="stBaseButton-secondary"] {
+    background: rgba(255,255,255,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.45) !important;
+    border-radius: 10px !important;
+    color: #ffffff !important;
+}
+[data-testid="stDownloadButton"] button *,
+[data-testid="stBaseButton-secondary"] * {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+[data-testid="stDownloadButton"] button:hover,
+[data-testid="stBaseButton-secondary"]:hover {
+    background: rgba(255,255,255,0.20) !important;
+    border-color: #ffffff !important;
+}
+
+/* Caption: more readable */
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] * {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+/* Chart toolbar: dark glass box, white icons */
+[data-testid="stElementToolbar"] {
+    background: rgba(15,30,30,0.85) !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    border-radius: 8px !important;
+}
+[data-testid="stElementToolbar"] button,
+[data-testid="stElementToolbar"] button * {
+    background: transparent !important;
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+[data-testid="stElementToolbar"] button:hover {
+    background: rgba(255,255,255,0.20) !important;
+}
