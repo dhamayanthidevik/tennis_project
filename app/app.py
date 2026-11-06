@@ -1,5 +1,4 @@
 import os
-from turtle import width
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
