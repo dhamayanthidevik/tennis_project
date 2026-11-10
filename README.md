@@ -70,3 +70,5 @@ A Streamlit app to explore doubles rankings, countries, competitions and venues,
 
 ### SQL Insights
 ![SQL Insights](screenshots/SQL_insight.png)
+
+📄 [Full Project Documentation](docs/Tennis_Project_Documentation.pdf)
